@@ -1,36 +1,37 @@
-package com.unit.course.model;
+package com.unit.course.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.unit.course.model.Course;
 
-@Entity
-public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CourseDto {
+
     private int id;
 
-    @Column
     private String nome;
 
-    @Column
     private String descricao;
 
-    @Column
     private String ementa;
 
-    @Column
     private Date dataCadastro;
 
-    @Column
     private Date dataInicio;
 
-    @Column
     private float valor;
+
+    public CourseDto() {
+    }
+
+    public CourseDto(Course entity) {
+        this.id = entity.getIid();
+        this.nome = entity.getNome();
+        this.descricao = entity.getDescricao();
+        this.ementa = entity.getEmenta();
+        this.dataCadastro = entity.getDataCadastro();
+        this.dataInicio = entity.getDataInicio();
+        this.valor = entity.getValor();
+    }
 
     /**
      * @return int return the Iid
@@ -40,10 +41,10 @@ public class Course {
     }
 
     /**
-     * @param Iid the Iid to set
+     * @param id the Iid to set
      */
-    public void setIid(int Iid) {
-        this.id = Iid;
+    public void setIid(int id) {
+        this.id = id;
     }
 
     /**
