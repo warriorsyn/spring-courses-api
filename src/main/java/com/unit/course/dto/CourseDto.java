@@ -6,7 +6,7 @@ import com.unit.course.model.Course;
 
 public class CourseDto {
 
-    private int id;
+    private Long id;
 
     private String nome;
 
@@ -24,7 +24,7 @@ public class CourseDto {
     }
 
     public CourseDto(Course entity) {
-        this.id = entity.getIid();
+        this.id = entity.getid();
         this.nome = entity.getNome();
         this.descricao = entity.getDescricao();
         this.ementa = entity.getEmenta();
@@ -33,17 +33,30 @@ public class CourseDto {
         this.valor = entity.getValor();
     }
 
+    public Course toEntity() {
+        Course entity = new Course();
+
+        entity.setNome(this.nome);
+        entity.setDescricao(this.descricao);
+        entity.setEmenta(this.ementa);
+        entity.setDataCadastro(this.dataCadastro);
+        entity.setDataInicio(this.dataInicio);
+        entity.setValor(this.valor);
+
+        return entity;
+    }
+
     /**
-     * @return int return the Iid
+     * @return int return the id
      */
-    public int getIid() {
+    public Long getid() {
         return id;
     }
 
     /**
-     * @param id the Iid to set
+     * @param id the id to set
      */
-    public void setIid(int id) {
+    public void setid(Long id) {
         this.id = id;
     }
 

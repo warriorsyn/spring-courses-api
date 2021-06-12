@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column
     private String nome;
@@ -33,17 +33,17 @@ public class Course {
     private float valor;
 
     /**
-     * @return int return the Iid
+     * @return int return the id
      */
-    public int getIid() {
+    public Long getid() {
         return id;
     }
 
     /**
-     * @param Iid the Iid to set
+     * @param id the id to set
      */
-    public void setIid(int Iid) {
-        this.id = Iid;
+    public void setid(Long id) {
+        this.id = id;
     }
 
     /**
